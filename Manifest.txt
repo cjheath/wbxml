@@ -6,6 +6,5 @@ config/hoe.rb
 config/requirements.rb
 ext/wbxml/extconf.rb
 ext/wbxml/wbxml.c
-lib/wbxml.rb
 lib/wbxml/version.rb
 setup.rb
