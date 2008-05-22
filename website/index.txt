@@ -1,0 +1,60 @@
+h1. wbxml
+
+h1. &#x2192; 'wbxml'
+
+
+h2. What
+
+Wbxml converts messages for WAP mobile phones from XML to the compressed WBXML and back again.
+See "http://www.wapforum.org":http://www.wapforum.org for more information.
+
+h2. Installing
+
+<pre syntax="ruby">sudo gem install wbxml</pre>
+
+h2. Demonstration of usage
+
+<pre syntax="ruby">
+require 'wbxml'
+
+w = WBXML.xml_to_wbxml <<END
+<?xml version="1.0"?>
+<!DOCTYPE si PUBLIC "-//WAPFORUM//DTD SI 1.0//EN" "http://www.wapforum.org/DTD/si.dtd">
+<si>
+  <indication href="http://wap.yahoo.com">
+    m-Qube Msg
+  </indication>
+</si>
+END
+=> "\003\005j\000E\306\f\003wap.yahoo.com\000\001\003m-Qube Msg\000\001\001"
+
+WBXML.wbxml_to_xml w
+=> "<?xml version=\"1.0\"?>\n<!DOCTYPE si PUBLIC \"-//WAPFORUM//DTD SI 1.0//EN\" \"http://www.wapforum.org/DTD/si.dtd\">\n<si>\n  <indication href=\"http://wap.yahoo.com\">\n    m-Qube Msg\n  </indication>\n</si>\n"
+</pre>
+
+
+h2. How to submit patches
+
+Read the "8 steps for fixing other people's code":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/ and for section "8b: Submit patch to Google Groups":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups, use the Google Group above.
+
+The trunk repository is <code>svn://rubyforge.org/var/svn/wbxml/trunk</code> for anonymous access.
+
+You can fetch the source from:
+
+* rubyforge: "http://rubyforge.org/scm/?group_id=<%= rubyforge_project_id %>":http://rubyforge.org/scm/?group_id=<%= rubyforge_project_id %>
+
+h3. Build and test instructions
+
+<pre>cd wbxml
+rake spec
+rake install_gem</pre>
+
+
+h2. License
+
+Development of this wrapper was generously funded by "Mobiblast.com":http://mobiblast.com
+and is free to use under the terms of the MIT license. 
+
+h2. Contact
+
+Comments are welcome. Send an email to "Clifford Heath":mailto:cjheath@rubyforge.org
