@@ -23,7 +23,7 @@ xml_to_wbxml(VALUE self, VALUE xml_source)
 	Check_SafeStr(xml_source);
 	if (TYPE(xml_source) != T_STRING)
 		rb_raise(rb_eTypeError, "parameter to xml_to_wbxml must be a string");
-	xml = (WB_UTINY*)STR2CSTR(xml_source);
+	xml = (WB_UTINY*)StringValuePtr(xml_source);
 
 	params.wbxml_version = WBXML_VERSION_13;
 	params.use_strtbl = TRUE;
@@ -53,7 +53,7 @@ wbxml_to_xml(VALUE self, VALUE wbxml_source)
 	Check_SafeStr(wbxml_source);
 	if (TYPE(wbxml_source) != T_STRING)
 		rb_raise(rb_eTypeError, "parameter to wbxml_to_xml must be a string");
-	wbxml = (WB_UTINY*)STR2CSTR(wbxml_source);
+	wbxml = (WB_UTINY*)StringValuePtr(wbxml_source);
 	wbxml_len = RSTRING_LEN(wbxml_source);
 
 	params.gen_type = WBXML_ENCODER_XML_GEN_INDENT;
