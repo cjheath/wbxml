@@ -22,7 +22,7 @@ wbxml is a simple Ruby wrapper for the wbxml2 library.
 
 * a working wbxml2
 ** OSX: port install wbxml2
-** Debian: apt-get install libwbxml2
+** Debian: apt-get install libwbxml2-dev
 
 == INSTALL:
 
